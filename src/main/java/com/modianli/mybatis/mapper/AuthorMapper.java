@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Update;
 //@Mapper
 public interface AuthorMapper {
 
-	@Insert("insert into author(aid, author_name) value(#{aid}, #{name})")
+	@Insert("insert into author(author_name) value(#{name})")
 	void insert(Author author);
 
 	default void test(){
