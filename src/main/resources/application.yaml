@@ -8,7 +8,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 mybatis:
   type-aliases-package: com.modianli.mybatis.bean
-  type-handlers-package: com.modianli.mybatis.interceptor
+  #BaseTypeHandlertype-handlers-package: com.modianli.mybatis.interceptor
 server:
   port: 9999
 

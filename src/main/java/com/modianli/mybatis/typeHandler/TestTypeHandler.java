@@ -2,12 +2,14 @@ package com.modianli.mybatis.typeHandler;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.type.MappedTypes;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@MappedTypes(String.class)
 public class TestTypeHandler extends BaseTypeHandler<String> {
 
 	@Override
