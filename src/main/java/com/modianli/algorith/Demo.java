@@ -7,7 +7,7 @@ public class Demo {
 	System.out.println("最大值: " + max(100, 125));
 
 	binaryStr(120);
-	System.out.println(trailingZeros(100));
+	System.out.println(trailingZeros(10014848));
   }
 
   private static int abP(int a, int b) {
@@ -39,8 +39,16 @@ public class Demo {
   public static long trailingZeros(long n) {
 	// write your code here, try to do it without arithmetic operators.
 	Long count5 = 0L;
-	for (long i = 5; n/i > 0; i *= 5) {
-	  count5 += n/i;
+	/*for (long i = 2; i <= n; i++) {
+			long c = i;
+	        while(c % 5 == 0){
+		        count5++;
+	        	c /= 5;
+	         }
+	    }*/
+
+	for (long i = 5; n / i > 0; i *= 5) {
+	  count5 += n / i;
 	}
 
 	return count5;
