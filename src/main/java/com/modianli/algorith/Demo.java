@@ -13,8 +13,10 @@ public class Demo {
 	//synchronized 修饰的静态方法时， 等同于 synchronized(XX.class){}
 	//修饰非静态方法时, 等同于 synchronized(this){}
 	Demo demo = new Demo();
-	new Thread(() -> demo.testSynchronized1()).start();
-	new Thread(() -> demo.testSynchronized2()).start();
+	//new Thread(() -> testSynchronized1()).start();
+	//new Thread(() -> testSynchronized2()).start();
+
+	testSynchronized1();
   }
 
   private static int abP(int a, int b) {
@@ -93,6 +95,8 @@ public class Demo {
 	} catch (InterruptedException e) {
 	  e.printStackTrace();
 	}
+
+	testSynchronized2();
   }
 
   public synchronized static void testSynchronized2() {
