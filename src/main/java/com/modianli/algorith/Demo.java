@@ -24,7 +24,71 @@ public class Demo {
 
 	//System.out.println("丑数:" + nthUglyNumber(9));
 	//System.out.println(reverseInteger(897));
-	System.out.println(Arrays.toString(mergeSortedArray(new int[]{1, 5}, new int[]{2, 3})));
+	//System.out.println(Arrays.toString(mergeSortedArray(new int[]{1, 5}, new int[]{2, 3})));
+
+//	System.out.println(strStr("aadfsafsdfs", "afs"));
+//
+//	Queue<Integer> queue = new ArrayDeque<>();
+//	queue.offer(1);queue.offer(13);queue.offer(12);
+//	while (queue.size() > 0){
+//	  Integer i = queue.poll();
+//	  if(i == 1){
+//	    queue.offer(i * 3);
+//	  }else{
+//		System.out.println(i);
+//	  }
+//	}
+//
+//
+//	int x = 10;
+//	int y = 12;
+//
+//	System.out.println("x= " + (x ^ y ^ x));
+//	System.out.println("y= " + (y ^ y ^ x));
+
+	System.out.println(climbStairs(44));
+  }
+
+  public static int climbStairs(int n) {
+	// write your code here
+	if(n == 1) return 1;
+	if(n == 2) return 2;
+	if(n == 3) return 3;
+
+	return climbStairs(n - 1) + climbStairs(n -2);
+  }
+
+  public static int strStr(String source, String target) {
+	// write your code here
+	if (source == null || source == "") {
+	  return -1;
+	}
+	if (target == null || target == "") {
+	  return -1;
+	}
+	if (target.length() > source.length()) {
+	  return -1;
+	}
+
+	int index = -1;
+	char[] sourceChar = source.toCharArray();
+	char[] targetChar = target.toCharArray();
+	for (int i = 0; i < sourceChar.length; i++) {
+	  boolean matched = true;
+	  for (int j = 0; j < targetChar.length; j++) {
+		if (sourceChar[i + j] != targetChar[j]) {
+		  matched = false;
+		  break;
+		}
+	  }
+
+	  if (matched) {
+		index = i;
+		break;
+	  }
+	}
+
+	return index;
   }
 
   public static int[] mergeSortedArray(int[] A, int[] B) {
@@ -58,28 +122,25 @@ public class Demo {
 	}*/
 
 	int newInd = newArr.length - 1;
-	int i = A.length -1, j = B.length - 1;
-	while(i >= 0 && j >= 0){
-	  if(A[i] > B[j]){
+	int i = A.length - 1, j = B.length - 1;
+	while (i >= 0 && j >= 0) {
+	  if (A[i] > B[j]) {
 		newArr[newInd--] = A[i--];
-	  }else {
+	  } else {
 		newArr[newInd--] = B[j--];
 	  }
 	}
 
-	if(i >= 0){
-	  while(i >= 0){
-	    newArr[newInd --] = A[i--];
+	if (i >= 0) {
+	  while (i >= 0) {
+		newArr[newInd--] = A[i--];
 	  }
 	}
-	if(j >= 0){
-	  while(j >= 0){
-		newArr[newInd --] = B[j--];
+	if (j >= 0) {
+	  while (j >= 0) {
+		newArr[newInd--] = B[j--];
 	  }
 	}
-
-
-
 
 	return newArr;
   }
